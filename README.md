@@ -18,10 +18,24 @@
 
 [Таблица с адресами сети](https://github.com/Targitay99/ntw-diplom/blob/main/Files/ip-address-table1.xlsx)
 
-Настройте на коммутаторах доступа порты для подключения пользовательских устройств и аплинки. Также на пользовательских портах коммутатора следует настроить:
+# 3 Настройте на коммутаторах доступа порты для подключения пользовательских устройств и аплинки. Также на пользовательских портах коммутатора следует настроить:
 
-port-security на 3 адреса,
-dhcp-snooping,
-portfast,
+port-security на 3 адреса,\
+dhcp-snooping,\
+portfast,\
 RSTP.
+
+<img width="382" height="368" alt="3" src="https://github.com/user-attachments/assets/6ec205ef-14b4-46a4-bad3-a739f7468352" />
+
+# 4 Настройте на коммутаторах ядра:
+
+vlan,\
+LAG,\
+RSTP,\
+SVI,\
+dhcp-relay\
+HSRP для всех vlan.
+
+[core1](https://github.com/Targitay99/ntw-diplom/blob/main/config/core1.txt)
+[core2](https://github.com/Targitay99/ntw-diplom/blob/main/config/core2.txt)
 
