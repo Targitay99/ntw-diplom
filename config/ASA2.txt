@@ -1,0 +1,130 @@
+ciscoasa#sh run
+: Saved
+:
+ASA Version 9.6(1)
+!
+hostname ciscoasa
+names
+!
+interface GigabitEthernet1/1
+ nameif DMZ
+ security-level 50
+ ip address 192.168.10.1 255.255.255.192
+!
+interface GigabitEthernet1/2
+ nameif inside
+ security-level 100
+ ip address 192.168.1.5 255.255.255.252
+!
+interface GigabitEthernet1/3
+ nameif outside
+ security-level 0
+ ip address 192.168.1.14 255.255.255.252
+!
+interface GigabitEthernet1/4
+ no nameif
+ no security-level
+ no ip address
+ shutdown
+!
+interface GigabitEthernet1/5
+ no nameif
+ no security-level
+ no ip address
+ shutdown
+!
+interface GigabitEthernet1/6
+ no nameif
+ no security-level
+ no ip address
+ shutdown
+!
+interface GigabitEthernet1/7
+ no nameif
+ no security-level
+ no ip address
+ shutdown
+!
+interface GigabitEthernet1/8
+ no nameif
+ no security-level
+ no ip address
+ shutdown
+!
+interface Management1/1
+ management-only
+ no nameif
+ no security-level
+ ip address 192.168.100.10 255.255.255.0
+ shutdown
+!
+object network all_net
+ subnet 192.168.0.0 255.255.0.0
+object network in_mngm_border2
+ subnet 192.168.1.13 255.255.255.255
+object network in_ofice_do_gre
+ subnet 192.168.1.24 255.255.255.252
+object network in_ofice_do_mngm
+ subnet 192.168.105.0 255.255.255.192
+object network in_ofice_do_printer
+ subnet 192.168.55.0 255.255.255.192
+object network in_ofice_do_user
+ subnet 192.168.25.0 255.255.255.128
+object network in_ofice_do_voip
+ subnet 192.168.45.0 255.255.255.192
+object network in_ofice_do_wifi
+ subnet 192.168.35.0 255.255.255.192
+object network internet
+ host 8.8.8.8
+object network serwer_web
+ subnet 192.168.10.0 255.255.255.192
+!
+!
+access-list in_ofice_do extended permit ip object in_ofice_do_gre object all_net
+access-list in_ofice_do extended permit ip object in_ofice_do_mngm object all_net
+access-list in_ofice_do extended permit ip object in_ofice_do_user object all_net
+access-list in_ofice_do extended permit ip object in_ofice_do_voip object all_net
+access-list in_ofice_do extended permit ip object in_ofice_do_printer object all_net
+access-list in_ofice_do extended permit ip object in_ofice_do_wifi object all_net
+access-list in_ofice_do extended permit ip object internet object serwer_web
+access-list in_ofice_do extended permit ip object in_mngm_border2 object all_net
+access-list in_do_to_web extended permit ip object in_ofice_do_user object serwer_web
+access-list in_inet_to_web extended permit ip object internet object serwer_web
+!
+!
+access-group in_ofice_do in interface outside
+access-group in_inet_to_web in interface DMZ
+!
+!
+class-map inspection_default
+ match default-inspection-traffic
+!
+policy-map type inspect dns preset_dns_map
+ parameters
+  message-length maximum 512
+policy-map global_policy
+ class inspection_default
+  inspect dns preset_dns_map
+  inspect ftp 
+  inspect http 
+  inspect icmp 
+  inspect tftp 
+!
+service-policy global_policy global
+!
+telnet timeout 5
+ssh timeout 5
+!
+!
+!
+!
+ipv6 router ospf 1
+ log-adjacency-changes
+!
+router ospf 1
+ log-adjacency-changes
+ area 1 nssa no-summary
+ network 192.168.1.4 255.255.255.252 area 1
+ network 192.168.1.12 255.255.255.252 area 1
+ network 192.168.10.0 255.255.255.192 area 1
+!
