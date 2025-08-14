@@ -73,9 +73,32 @@ RSTP и LAG работают.
 из outside в inside и DMZ доступ разрешен для траффика от приватных адресов\
 из DMZ разрешен доступ только в outside на публичные адреса.
 
+Настройки сделаны:\
 [ASA1](https://github.com/Targitay99/ntw-diplom/blob/main/config/ASA1.txt)\
 [ASA2](https://github.com/Targitay99/ntw-diplom/blob/main/config/ASA2.txt).
 
+# 9 На Cisco ASA настройте протокол ospf. МСЭ должен принимать и анонсировать все сети в зоне 1.
+Настройте web-сервер, подключенный в DMZ зону одной из ASA.
+
+Настройки сделаны:\
+[ASA1](https://github.com/Targitay99/ntw-diplom/blob/main/config/ASA1.txt)\
+[ASA2](https://github.com/Targitay99/ntw-diplom/blob/main/config/ASA2.txt).
+
+На этом шаге проверьте:
+
+все ли сети получены
+
+<img width="632" height="494" alt="9_1" src="https://github.com/user-attachments/assets/88c5f5b9-7d10-4807-8e28-8dac36f9910a" />
+
+все ли сети анонсируются на коммутаторы ядра
+
+<img width="545" height="398" alt="9_2" src="https://github.com/user-attachments/assets/e2082634-6049-4aa4-b82d-05f0139e2140" />
+
+есть ли доступ к web-серверу и с него
+
+<img width="564" height="127" alt="9_3" src="https://github.com/user-attachments/assets/1cbcf9be-a14c-4a16-86bd-5c775de60678" />
+
+# 10 Настройте пограничные маршрутизаторы. Настройте адресацию и проверьте сетевую связность внутри ЛВС и доступность шлюза провайдера.
 
 
 
