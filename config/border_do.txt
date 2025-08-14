@@ -1,0 +1,194 @@
+border_do#sh run
+Building configuration...
+
+Current configuration : 4271 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname border_do
+!
+!
+!
+!
+!
+!
+!
+aaa new-model
+!
+aaa authentication login default group tacacs+ local 
+aaa authentication enable default group tacacs+ local 
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+username admin privilege 15 secret 5 $1$mERr$vTbHul1N28cEp8lkLqr0f/
+!
+!
+license udi pid CISCO1941/K9 sn FTX1524LK1K-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+ip domain-name netology.ru
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Tunnel31
+ ip address 192.168.1.22 255.255.255.252
+ mtu 1476
+ tunnel source GigabitEthernet0/0
+ tunnel destination 172.1.0.2
+!
+!
+interface Tunnel32
+ ip address 192.168.1.25 255.255.255.252
+ mtu 1476
+ tunnel source GigabitEthernet0/0
+ tunnel destination 172.2.0.2
+!
+!
+interface GigabitEthernet0/0
+ ip address 172.3.0.2 255.255.255.252
+ ip nat outside
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ no ip address
+ ip nat inside
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1.101
+ encapsulation dot1Q 101
+ ip address 192.168.105.1 255.255.255.192
+ ip helper-address 192.168.100.100
+!
+interface GigabitEthernet0/1.201
+ encapsulation dot1Q 201
+ ip address 192.168.25.1 255.255.255.128
+ ip helper-address 192.168.100.100
+ ip access-group VLAN201 in
+!
+interface GigabitEthernet0/1.301
+ encapsulation dot1Q 301
+ ip address 192.168.35.1 255.255.255.0
+ ip helper-address 192.168.100.7
+ ip access-group VLAN301 in
+ ip nat inside
+!
+interface GigabitEthernet0/1.401
+ encapsulation dot1Q 401
+ ip address 192.168.45.1 255.255.255.192
+ ip helper-address 192.168.100.100
+ ip access-group VLAN401 in
+!
+interface GigabitEthernet0/1.501
+ encapsulation dot1Q 501
+ ip address 192.168.55.1 255.255.255.192
+ ip helper-address 192.168.100.100
+ ip access-group VLAN501 in
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ log-adjacency-changes
+ passive-interface GigabitEthernet0/1.101
+ passive-interface GigabitEthernet0/1.201
+ passive-interface GigabitEthernet0/1.301
+ passive-interface GigabitEthernet0/1.401
+ passive-interface GigabitEthernet0/1.501
+ network 192.168.1.20 0.0.0.3 area 2
+ network 192.168.1.24 0.0.0.3 area 2
+ network 192.168.105.0 0.0.0.63 area 2
+ network 192.168.25.0 0.0.0.127 area 2
+ network 192.168.35.0 0.0.0.255 area 2
+ network 192.168.45.0 0.0.0.63 area 2
+ network 192.168.55.0 0.0.0.63 area 2
+!
+ip nat inside source list 10 interface GigabitEthernet0/0 overload
+ip classless
+ip route 172.1.0.0 255.255.255.252 172.3.0.1 
+ip route 172.2.0.0 255.255.255.252 172.3.0.1 
+ip route 0.0.0.0 0.0.0.0 172.3.0.1 
+!
+ip flow-export version 9
+!
+!
+ip access-list extended VLAN201
+ permit icmp any any
+ permit ip 192.168.25.0 0.0.0.127 192.168.25.0 0.0.0.127
+ permit ip 192.168.25.0 0.0.0.127 192.168.55.0 0.0.0.63
+ permit ip 192.168.25.0 0.0.0.127 host 192.168.10.2
+ permit ip 192.168.25.0 0.0.0.127 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ permit tcp 192.168.20.0 0.0.0.127 any eq www
+ deny ip any any
+access-list 10 permit 192.168.35.0 0.0.0.127
+ip access-list extended VLAN301
+ permit ip 192.168.35.0 0.0.0.255 192.168.35.0 0.0.0.255
+ permit ip 192.168.35.0 0.0.0.255 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ permit tcp 192.168.35.0 0.0.0.255 any eq www
+ deny ip any any
+ip access-list extended VLAN401
+ permit ip 192.168.45.0 0.0.0.63 192.168.45.0 0.0.0.63
+ permit ip 192.168.45.0 0.0.0.63 192.168.40.0 0.0.0.255
+ permit ip 192.168.44.0 0.0.0.255 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ deny ip any any
+ip access-list extended VLAN501
+ permit ip 192.168.55.0 0.0.0.63 192.168.55.0 0.0.0.63
+ permit ip 192.168.55.0 0.0.0.255 192.168.20.0 0.0.0.255
+ permit ip 192.168.55.0 0.0.0.255 192.168.25.0 0.0.0.127
+ permit ip 192.168.55.0 0.0.0.255 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ deny ip any any
+!
+!
+tacacs-server host 192.168.100.100
+tacacs-server key cisco
+!
+!
+!
+logging 192.168.100.100
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login authentication default
+!
+!
+ntp server 192.168.100.100
+!
+end
