@@ -67,11 +67,17 @@ RSTP и LAG работают.
 
 На каждом межсетевом экране настройте адресацию и три зоны: inside, outside, DMZ.
 
-# 8 Правила фильтрации:
+# 8 Правила фильтрации:\
 
-из inside доступ свободный во все зоны
-из outside в inside и DMZ доступ разрешен для траффика от приватных адресов
-из DMZ разрешен доступ только в outside на публичные адреса
+из inside доступ свободный во все зоны\
+из outside в inside и DMZ доступ разрешен для траффика от приватных адресов\
+из DMZ разрешен доступ только в outside на публичные адреса.
+
+[ASA1](https://github.com/Targitay99/ntw-diplom/blob/main/config/ASA1.txt)\
+[ASA2](https://github.com/Targitay99/ntw-diplom/blob/main/config/ASA2.txt).
+
+
+
 
 
 
