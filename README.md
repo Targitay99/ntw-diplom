@@ -36,6 +36,47 @@ SVI,\
 dhcp-relay\
 HSRP для всех vlan.
 
+Настройки сделаны:
 [core1](https://github.com/Targitay99/ntw-diplom/blob/main/config/core1.txt)
 [core2](https://github.com/Targitay99/ntw-diplom/blob/main/config/core2.txt)
+
+<img width="530" height="348" alt="4_1" src="https://github.com/user-attachments/assets/f98f3fb0-3d5e-493e-a746-b5990620dc0c" />
+<img width="531" height="214" alt="4_2" src="https://github.com/user-attachments/assets/8114495f-0899-4cad-9632-b79e71136cce" />
+
+RSTP и LAG работают.
+
+# 5 Настройте сервисы для распределения сетевых настроек для пользовательских устройств. Так как сервер находится в отдельной сети, на SVI настраивается helper. По окончанию настроек dhcp-сервер должен раздать настройки PC, телефонам и принтерам, с любого хоста ЦО должен быть доступен любой другой хост.
+
+Настройки сделаны:
+[core1](https://github.com/Targitay99/ntw-diplom/blob/main/config/core1.txt)
+[core2](https://github.com/Targitay99/ntw-diplom/blob/main/config/core2.txt)
+
+# 6 Настройте сервис БЛВС. Точки доступа должны подключаться к контроллеру, который сообщит им настройки по capwap. Подключите ноутбук к ТД, проверьте связность сети.
+
+<img width="801" height="478" alt="5_1" src="https://github.com/user-attachments/assets/7027d35f-f7f9-4336-b88c-207a480b2b0b" />
+<img width="907" height="440" alt="5_2" src="https://github.com/user-attachments/assets/68eed59d-7a7e-493c-b681-2a13c9170711" />
+<img width="785" height="361" alt="5_3" src="https://github.com/user-attachments/assets/9400399e-a6ac-4734-9a35-3ce3623c3cde" />
+
+Настройки выполненны. Ноутбук в основном офисе не подключается к сети после запуска системы. Лечится выключением и включением питания точки доступа. Почему так происходит не разобрался. 
+
+# 7 На коммутаторах ядра запустите протокол маршрутизации ospf. Он должен анонсировать все внутренние сети в зоне 1.
+
+Настройки сделаны:
+[core1](https://github.com/Targitay99/ntw-diplom/blob/main/config/core1.txt)
+[core2](https://github.com/Targitay99/ntw-diplom/blob/main/config/core2.txt)
+
+На каждом межсетевом экране настройте адресацию и три зоны: inside, outside, DMZ.
+
+# 8 Правила фильтрации:
+
+из inside доступ свободный во все зоны
+из outside в inside и DMZ доступ разрешен для траффика от приватных адресов
+из DMZ разрешен доступ только в outside на публичные адреса
+
+
+
+
+
+
+
 
