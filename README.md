@@ -65,9 +65,9 @@ RSTP и LAG работают.
 [core1](https://github.com/Targitay99/ntw-diplom/blob/main/config/core1.txt)
 [core2](https://github.com/Targitay99/ntw-diplom/blob/main/config/core2.txt)
 
-На каждом межсетевом экране настройте адресацию и три зоны: inside, outside, DMZ.
+# 8 На каждом межсетевом экране настройте адресацию и три зоны: inside, outside, DMZ.
 
-# 8 Правила фильтрации:\
+Правила фильтрации:
 
 из inside доступ свободный во все зоны\
 из outside в inside и DMZ доступ разрешен для траффика от приватных адресов\
