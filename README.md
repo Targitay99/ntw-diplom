@@ -130,6 +130,48 @@ RSTP и LAG работают.
 [border1](https://github.com/Targitay99/ntw-diplom/blob/main/config/border1.txt)\
 [border2](https://github.com/Targitay99/ntw-diplom/blob/main/config/border2.txt).
 
+# 14 Настройте маршрутизатор филиала: адресацию, статический маршрут до роутеров ЦО через провайдера. Проверьте связность с внешними интерфейсами бордеров ЦО.
+
+Настройки сделаны:\
+[border_do](https://github.com/Targitay99/ntw-diplom/blob/main/config/border_do.txt).
+
+<img width="754" height="849" alt="15_1" src="https://github.com/user-attachments/assets/6077cd45-02e1-4d5e-8a81-612f9ea5dc87" />
+
+# 15 На маршрутизаторе филиала настройте Tunnel-интерфейсы gre до бордеров ЦО. А так же протокол ospf для получения и анонса внутренних сетей. Туннельные интерфейсы в зоне 2.
+
+Настройки сделаны:\
+[border_do](https://github.com/Targitay99/ntw-diplom/blob/main/config/border_do.txt).
+
+# 16 Настройте коммутатор доступа филиала для подключения к сети ip-телефона, ПК и точки доступа. На маршрутизаторе настройте helper для централизованного получения сетевых настроек оконечными устройствами.
+
+Настройки сделаны:\
+[border_do](https://github.com/Targitay99/ntw-diplom/blob/main/config/border_do.txt)\
+[access_do](https://github.com/Targitay99/ntw-diplom/blob/main/config/access_do.txt).
+
+# 17 Настройте БЛВС ТД филиала, подключить к ней ноутбук. Проверьте сетевую связность.
+
+Настройки сделаны:
+
+<img width="708" height="431" alt="17_1" src="https://github.com/user-attachments/assets/9ac8f848-1bae-4fb2-93ad-bdd4443f18dc" />
+
+# 18 Настройте на АСО интерфейсы для управления. Настройте на них аутентификацию по tacacs+, синхронизацию часов(NTP) с сервером и отправку логов по syslog(на ASA настройка aaa и syslog не требуется, достаточно локальной учётной записи).
+
+Настройки сделаны:\
+При подключении к tacasc+:\
+log - admin1\
+psw - admin1.\
+
+Локально:\
+log - admin\
+psw - admin.\
+
+Не всегда при включении системы проходит пароль для border_do. Не смог решить эту проблему. При отключении сервера tacasc+ работает стабильно.
+
+# 19 Настройте ip-телефоны, проверьте дозвон.
+
+
+
+
 
 
 
