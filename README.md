@@ -65,9 +65,9 @@ RSTP и LAG работают.
 [core1](https://github.com/Targitay99/ntw-diplom/blob/main/config/core1.txt)
 [core2](https://github.com/Targitay99/ntw-diplom/blob/main/config/core2.txt)
 
-На каждом межсетевом экране настройте адресацию и три зоны: inside, outside, DMZ.
+# 8 На каждом межсетевом экране настройте адресацию и три зоны: inside, outside, DMZ.
 
-# 8 Правила фильтрации:\
+Правила фильтрации:
 
 из inside доступ свободный во все зоны\
 из outside в inside и DMZ доступ разрешен для траффика от приватных адресов\
@@ -101,8 +101,37 @@ RSTP и LAG работают.
 # 10 Настройте пограничные маршрутизаторы. Настройте адресацию и проверьте сетевую связность внутри ЛВС и доступность шлюза провайдера.
 
 Настройки сделаны:\
-[border1]()\
-[border2]().
+[border1](https://github.com/Targitay99/ntw-diplom/blob/main/config/border1.txt)\
+[border2](https://github.com/Targitay99/ntw-diplom/blob/main/config/border2.txt).
+
+# 11 Настройте маршрутизацию ospf:
+
+интерфейсы в сторону ASA в зоне 1\
+
+между собой в зоне 0\
+
+Настройте анонс маршрута 0.0.0.0/0 во внутреннюю сеть с разными метриками для резервирования подключения. Другие маршруты с бордеров во внутреннюю сеть не должны анонсироваться. Проверьте получение и анонс маршрутов.\
+
+Настройки сделаны:\
+[border1](https://github.com/Targitay99/ntw-diplom/blob/main/config/border1.txt)\
+[border2](https://github.com/Targitay99/ntw-diplom/blob/main/config/border2.txt).
+
+<img width="637" height="705" alt="11_3" src="https://github.com/user-attachments/assets/3c548116-1dda-4fb1-a7dc-6263e8173459" />
+
+# 12 Настройте ebgp-сессии с оборудованием провайдера. Проверьте получение и анонс маршрутов.
+
+Настройки сделаны:\
+[border1](https://github.com/Targitay99/ntw-diplom/blob/main/config/border1.txt)\
+[border2](https://github.com/Targitay99/ntw-diplom/blob/main/config/border2.txt).
+
+# 13 Настройте правила NAT,PAT на пограничных маршрутизаторах.
+
+Настройки сделаны:\
+[border1](https://github.com/Targitay99/ntw-diplom/blob/main/config/border1.txt)\
+[border2](https://github.com/Targitay99/ntw-diplom/blob/main/config/border2.txt).
+
+
+
 
 
 
