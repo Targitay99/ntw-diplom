@@ -169,6 +169,11 @@ psw - admin.\
 
 # 19 Настройте ip-телефоны, проверьте дозвон.
 
+Настройки сделаны:\
+[VoIP](https://github.com/Targitay99/ntw-diplom/blob/main/config/VoIP.txt).
+
+
+
 
 
 
