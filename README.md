@@ -248,7 +248,7 @@ psw - admin.\
 
 12 Ноутбуки не имеют доступа к внутренним сетям компании(ping svi users, mgmt, printer).
 
-
+<img width="686" height="809" alt="test12" src="https://github.com/user-attachments/assets/30a9c80a-4a6b-44ee-9858-d5a953b59824" />
 
 13 Устройства филиала имеют доступ только к внутренним сетям компании, не имеют выхода в интернет.
 
