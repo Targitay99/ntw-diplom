@@ -216,9 +216,12 @@ psw - admin.\
 
 6 Телефонные аппараты зарегестрированы на VoIP сервере, прозвон с одного на другой работает.
 
-
+<img width="735" height="310" alt="test6_VoIP_1" src="https://github.com/user-attachments/assets/63143908-ef72-4846-9c1e-4a277409ffa7" />
+<img width="1368" height="475" alt="test6_VoIP_2" src="https://github.com/user-attachments/assets/ed64d05b-6be2-42c2-9d00-ef5d11065ea9" />
 
 7 На все сетевые устройства можно попасть по учётной записи tacacs+ сервера.
+
+
 
 
 
