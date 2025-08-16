@@ -203,9 +203,15 @@ psw - admin.\
 
 4 Маршрутизация на бордерах sh ip route. В таблице маршрутизации должны присутствовать bgp-маршруты от провайдера, ospf-маршруты до внутренних подсетей ЦО и филиала.
 
+<img width="684" height="701" alt="test4_border1" src="https://github.com/user-attachments/assets/5d5820dd-2c4b-4030-a340-1414a215be19" />
+<img width="678" height="701" alt="test4_border2" src="https://github.com/user-attachments/assets/426d9d79-b9df-41dc-bfa7-0abd70ddd429" />
+<img width="650" height="828" alt="test4_border_do" src="https://github.com/user-attachments/assets/0a3baca2-e66b-4e06-9cb2-164c539d770a" />
+
 
 5 Туннель CAPWAP на БЛВС ТД в статусе Connected, с ноутбуков есть связь с 8.8.8.8.
 
+<img width="922" height="728" alt="test5_PT1" src="https://github.com/user-attachments/assets/892ed1c5-3fe7-4d2c-bfcd-610a62374e82" />
+<img width="954" height="711" alt="test5_PT2" src="https://github.com/user-attachments/assets/7338db61-9031-457c-8784-8f4c51766afb" />
 
 
 6 Телефонные аппараты зарегестрированы на VoIP сервере, прозвон с одного на другой работает.
