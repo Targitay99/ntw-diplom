@@ -1,0 +1,136 @@
+core1
+
+ip access-list extended VLAN200
+ permit icmp any any
+ permit ip 192.168.20.0 0.0.0.255 192.168.20.0 0.0.0.255
+ permit ip 192.168.20.0 0.0.0.255 192.168.50.0 0.0.0.255
+ permit ip 192.168.20.0 0.0.0.255 host 192.168.10.2
+ permit ip 192.168.20.0 0.0.0.255 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ permit tcp 192.168.20.0 0.0.0.255 any eq www
+ deny ip any any
+ip access-list extended VLAN300
+ permit ip 192.168.30.0 0.0.0.255 192.168.30.0 0.0.0.255
+ permit ip 192.168.30.0 0.0.0.255 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ permit tcp 192.168.30.0 0.0.0.255 any eq www
+ deny ip any any
+ip access-list extended VLAN400
+ permit icmp any any
+ permit ip 192.168.40.0 0.0.0.255 192.168.40.0 0.0.0.255
+ permit ip 192.168.45.0 0.0.0.255 192.168.40.0 0.0.0.255
+ permit ip 192.168.40.0 0.0.0.255 192.168.45.0 0.0.0.255
+ permit ip 192.168.40.0 0.0.0.255 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ deny ip any any
+ip access-list extended VLAN500
+ permit ip 192.168.50.0 0.0.0.255 192.168.50.0 0.0.0.255
+ permit ip 192.168.50.0 0.0.0.255 192.168.20.0 0.0.0.255
+ permit ip 192.168.50.0 0.0.0.255 192.168.25.0 0.0.0.255
+ permit ip 192.168.50.0 0.0.0.255 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ deny ip any any
+
+
+
+core2
+
+ip access-list extended VLAN300
+ permit ip 192.168.30.0 0.0.0.255 192.168.30.0 0.0.0.255
+ permit ip 192.168.30.0 0.0.0.255 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ permit tcp 192.168.30.0 0.0.0.255 any eq www
+ deny ip any any
+ip access-list extended VLAN400
+ permit icmp any any
+ permit ip 192.168.40.0 0.0.0.255 192.168.40.0 0.0.0.255
+ permit ip 192.168.45.0 0.0.0.255 192.168.40.0 0.0.0.255
+ permit ip 192.168.40.0 0.0.0.255 192.168.45.0 0.0.0.255
+ permit ip 192.168.40.0 0.0.0.255 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ deny ip any any
+ip access-list extended VLAN500
+ permit ip 192.168.50.0 0.0.0.255 192.168.50.0 0.0.0.255
+ permit ip 192.168.50.0 0.0.0.255 192.168.20.0 0.0.0.255
+ permit ip 192.168.50.0 0.0.0.255 192.168.25.0 0.0.0.255
+ permit ip 192.168.50.0 0.0.0.255 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ deny ip any any
+ip access-list extended VLAN200
+ permit icmp any any
+ permit ip 192.168.20.0 0.0.0.255 192.168.20.0 0.0.0.255
+ permit ip 192.168.20.0 0.0.0.255 192.168.50.0 0.0.0.255
+ permit ip 192.168.20.0 0.0.0.255 host 192.168.10.2
+ permit ip 192.168.20.0 0.0.0.255 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ permit tcp 192.168.20.0 0.0.0.255 any eq www
+ deny ip any any
+
+
+
+Border_do
+
+ip access-list extended VLAN201
+ permit icmp any any
+ permit ip 192.168.25.0 0.0.0.127 192.168.25.0 0.0.0.127
+ permit ip 192.168.25.0 0.0.0.127 192.168.55.0 0.0.0.63
+ permit ip 192.168.25.0 0.0.0.127 host 192.168.10.2
+ permit ip 192.168.25.0 0.0.0.127 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ permit tcp 192.168.20.0 0.0.0.127 any eq www
+ deny ip any any
+access-list 10 permit 192.168.35.0 0.0.0.127
+ip access-list extended VLAN301
+ permit ip 192.168.35.0 0.0.0.255 192.168.35.0 0.0.0.255
+ permit ip 192.168.35.0 0.0.0.255 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ permit tcp 192.168.35.0 0.0.0.255 any eq www
+ deny ip any any
+ip access-list extended VLAN401
+ permit ip 192.168.45.0 0.0.0.63 192.168.45.0 0.0.0.63
+ permit ip 192.168.45.0 0.0.0.63 192.168.40.0 0.0.0.255
+ permit ip 192.168.44.0 0.0.0.255 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ deny ip any any
+ip access-list extended VLAN501
+ permit ip 192.168.55.0 0.0.0.63 192.168.55.0 0.0.0.63
+ permit ip 192.168.55.0 0.0.0.255 192.168.20.0 0.0.0.255
+ permit ip 192.168.55.0 0.0.0.255 192.168.25.0 0.0.0.127
+ permit ip 192.168.55.0 0.0.0.255 224.0.0.0 0.0.0.255
+ permit udp any host 255.255.255.255 eq bootps
+ permit udp any host 255.255.255.255 eq bootpc
+ deny ip any any
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
