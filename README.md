@@ -221,15 +221,16 @@ psw - admin.\
 
 7 На все сетевые устройства можно попасть по учётной записи tacacs+ сервера.
 
-
-
-
+На все устройства можно попасть по учётной записи tacacs+ сервера. Не получилось настроить привелегию у туннельных интерфейсов, авторизация на border_do глючит.
 
 8 Время на устройствах синхронизировано. Show ntp status.
 
-
+<img width="615" height="128" alt="test8_NTP" src="https://github.com/user-attachments/assets/797cbe25-89d9-4fba-9242-30215912271f" />
 
 9 С 8.8.8.8 есть доступ к web-серверу в DMZ. Обратный доступ тоже есть. Проверять доступ необходимо браузером.
+
+<img width="847" height="466" alt="test9_WEB" src="https://github.com/user-attachments/assets/ec58571d-df1a-4045-a078-35f9a21785ce" />
+<img width="764" height="534" alt="test9_Inet" src="https://github.com/user-attachments/assets/c0952ec4-29cb-43e6-aab9-c1894055b27f" />
 
 
 
