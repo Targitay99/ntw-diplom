@@ -186,6 +186,71 @@ psw - admin.\
 
 2 WireGuard....
 
+# Тестирование
+
+1 Проверка STP, HSRP. Роль Root bridge и HSRP-active на одном устройстве. Команды: show spanning-tree, show standby на этом устройстве.\
+[show spanning-tree на core1](https://github.com/Targitay99/ntw-diplom/blob/main/test/core1_test1.txt)\
+[show standby на core1](https://github.com/Targitay99/ntw-diplom/blob/main/test/core1_test2.txt).
+
+2 Проверка маршрутизации на коммутаторах ядра. Show ip route. Должен присутствовать маршрут по-умолчанию и маршруты до интерфейсов ASA и бордеров.
+
+<img width="636" height="400" alt="test2_core1" src="https://github.com/user-attachments/assets/d02334a0-d5ec-4241-823d-5166b868dcc1" /> <img width="639" height="388" alt="test2_core2" src="https://github.com/user-attachments/assets/3e22b10b-a0a2-459a-8294-9045d71bf557" />
+
+3 Проверка LAG на коммутаторах ядра show etherchannel summary.
+
+<img width="553" height="265" alt="test3_core1" src="https://github.com/user-attachments/assets/9772885c-4afb-48ee-9a6f-8f22f4d7734a" /><img width="561" height="265" alt="test3_core2" src="https://github.com/user-attachments/assets/a1421d29-54d5-4881-ab77-96a09032ce0c" />
+
+
+4 Маршрутизация на бордерах sh ip route. В таблице маршрутизации должны присутствовать bgp-маршруты от провайдера, ospf-маршруты до внутренних подсетей ЦО и филиала.
+
+<img width="684" height="701" alt="test4_border1" src="https://github.com/user-attachments/assets/5d5820dd-2c4b-4030-a340-1414a215be19" />
+<img width="678" height="701" alt="test4_border2" src="https://github.com/user-attachments/assets/426d9d79-b9df-41dc-bfa7-0abd70ddd429" />
+<img width="650" height="828" alt="test4_border_do" src="https://github.com/user-attachments/assets/0a3baca2-e66b-4e06-9cb2-164c539d770a" />
+
+
+5 Туннель CAPWAP на БЛВС ТД в статусе Connected, с ноутбуков есть связь с 8.8.8.8.
+
+<img width="922" height="728" alt="test5_PT1" src="https://github.com/user-attachments/assets/892ed1c5-3fe7-4d2c-bfcd-610a62374e82" />
+<img width="954" height="711" alt="test5_PT2" src="https://github.com/user-attachments/assets/7338db61-9031-457c-8784-8f4c51766afb" />
+
+
+6 Телефонные аппараты зарегестрированы на VoIP сервере, прозвон с одного на другой работает.
+
+<img width="735" height="310" alt="test6_VoIP_1" src="https://github.com/user-attachments/assets/63143908-ef72-4846-9c1e-4a277409ffa7" />
+<img width="1368" height="475" alt="test6_VoIP_2" src="https://github.com/user-attachments/assets/ed64d05b-6be2-42c2-9d00-ef5d11065ea9" />
+
+7 На все сетевые устройства можно попасть по учётной записи tacacs+ сервера.
+
+На все устройства можно попасть по учётной записи tacacs+ сервера. Не получилось настроить привелегию у туннельных интерфейсов, авторизация на border_do глючит.
+
+8 Время на устройствах синхронизировано. Show ntp status.
+
+<img width="615" height="128" alt="test8_NTP" src="https://github.com/user-attachments/assets/797cbe25-89d9-4fba-9242-30215912271f" />
+
+9 С 8.8.8.8 есть доступ к web-серверу в DMZ. Обратный доступ тоже есть. Проверять доступ необходимо браузером.
+
+<img width="847" height="466" alt="test9_WEB" src="https://github.com/user-attachments/assets/ec58571d-df1a-4045-a078-35f9a21785ce" />
+<img width="764" height="534" alt="test9_Inet" src="https://github.com/user-attachments/assets/c0952ec4-29cb-43e6-aab9-c1894055b27f" />
+
+
+
+10 Отключение одного из каналов связи не приводит к потере доступа в интернет с пользовательских ПК(ping до сервера 8.8.8.8).
+
+В CPT нет возможности работать с iBGP, как анонсировать маршрут через соседа при потере канала связи без iBGP не знаю.
+
+<img width="605" height="92" alt="test10_BGP" src="https://github.com/user-attachments/assets/7a868454-d151-4cd1-af00-8c3261991d54" />
+
+
+11 Выход из строя одного из коммутаторов ядра, межсетевого экрана или бордер роутера не приводит к потере доступа в интернет с пользовательских ПК(ping до сервера 8.8.8.8). Потеря доступа к web-серверу извне доспускается.
+
+![Test11](https://github.com/user-attachments/assets/77cdfa20-7092-4411-b354-bc6e81b2c00f)
+
+
+12 Ноутбуки не имеют доступа к внутренним сетям компании(ping svi users, mgmt, printer).
+
+<img width="686" height="809" alt="test12" src="https://github.com/user-attachments/assets/30a9c80a-4a6b-44ee-9858-d5a953b59824" />
+
+13 Устройства филиала имеют доступ только к внутренним сетям компании, не имеют выхода в интернет.
 
 
 
