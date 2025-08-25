@@ -56,7 +56,7 @@ https://github.com/user-attachments/assets/c8d6d66e-a0b0-4325-ad8a-3972f76e7f05
  
    Для интерфейсов в area1 и area0 добавленны метрики.\
     <img width="1364" height="453" alt="restocom3" src="https://github.com/user-attachments/assets/432b69e0-c6f1-4e6a-9af7-7c9b0fd21976" />
-
+  
 
  3 - BGP → использует сложные атрибуты (weight, Local Preference, MED, AS Path).\
     weight - используется внутри одного маршрутизатора, не подходит для нашей схемы.\
@@ -67,7 +67,9 @@ https://github.com/user-attachments/assets/c8d6d66e-a0b0-4325-ad8a-3972f76e7f05
 
 Так же можно настроить трансляцию маршрутов из BGP в OSPF и таким маршрутам задать метрики
 
-https://github.com/user-attachments/assets/ae4e3fc2-647b-4d91-8350-886868b87f55
+
+https://github.com/user-attachments/assets/75aa2743-5083-4bcf-8e68-3dd6a0be1255
+
 
 Но при перезапуске системы маршрутизация "слетит", для работы транслируемых маршрутов придется
 отказаться от nssa no-summary, что приведет к некоректной работе CPT, так-что от таких 
