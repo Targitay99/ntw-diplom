@@ -56,6 +56,8 @@ https://github.com/user-attachments/assets/c8d6d66e-a0b0-4325-ad8a-3972f76e7f05
  
    Для интерфейсов в area1 и area0 добавленны метрики.\
     <img width="1364" height="453" alt="restocom3" src="https://github.com/user-attachments/assets/432b69e0-c6f1-4e6a-9af7-7c9b0fd21976" />
+    [border1](https://github.com/Targitay99/ntw-diplom/blob/main/config/border1.txt#L74-L81)\
+[border2](https://github.com/Targitay99/ntw-diplom/blob/main/config/border2.txt#L74-L81).
   
 
  3 - BGP → использует сложные атрибуты (weight, Local Preference, MED, AS Path).\
