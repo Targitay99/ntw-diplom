@@ -1,4 +1,4 @@
-# Ответы на замечания по [Дипломной работе](https://github.com/Targitay99/ntw-diplom)\
+# Ответы на замечания по [Дипломной работе](https://github.com/Targitay99/ntw-diplom)
 [Практическая работа](https://github.com/Targitay99/ntw-diplom/blob/main/Files/My_work_ver2.pkt)
 
 **Вопрос 1:**
