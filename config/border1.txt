@@ -1,7 +1,7 @@
 border1#sh run
 Building configuration...
 
-Current configuration : 1752 bytes
+Current configuration : 1788 bytes
 !
 version 15.1
 no service timestamps log datetime msec
@@ -71,12 +71,14 @@ interface GigabitEthernet0/0
 !
 interface GigabitEthernet0/1
  ip address 192.168.1.9 255.255.255.252
+ ip ospf cost 100
  ip nat inside
  duplex auto
  speed auto
 !
 interface GigabitEthernet0/1/0
  ip address 192.168.1.17 255.255.255.252
+ ip ospf cost 100
 !
 interface Vlan1
  no ip address
@@ -125,4 +127,4 @@ ntp server 192.168.100.100
 end
 
 
-border1#
+border1# 
